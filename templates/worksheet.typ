@@ -1,7 +1,8 @@
 #import "components/footers.typ": default;
-#import "components/helpers.typ": lines;
+#import "components/helpers.typ": lines, quelle, mark;
 #import "components/tasks.typ": *;
-#import "components/boxes.typ": *
+#import "components/boxes.typ": *;
+#import "components/code-box.typ": *;
 
 #let worksheet(topic: "", subject: "",  authors: ("JM"), version: "1.0", lsg: false, body) = {
   // Set the document's basic properties.

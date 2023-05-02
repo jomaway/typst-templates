@@ -179,6 +179,38 @@
   colorbox(title:title, color: "red", body)
 }
 
-#let infobox(body, position: center) = {
-  colorbox(title:"Info", color: "green", body)
+#let infobox(title: "Info", body) = {
+  colorbox(title:title, color: "green", body)
+}
+
+#let headlessbox(color: none, radius: 2pt, width: auto, body) = {
+  let strokeColor = luma(70)
+  let backgroundColor = white
+
+  if color == "red" {
+    strokeColor = rgb(237, 32, 84)
+    backgroundColor = rgb(253, 228, 224)
+  } else if color == "green" {
+    strokeColor = rgb(102, 174, 62)
+    backgroundColor = rgb(235, 244, 222)
+  } else if color == "blue" {
+    strokeColor = rgb(29, 144, 208)
+    backgroundColor = rgb(232, 246, 253)
+  } else if color == "yellow" {
+    strokeColor = rgb(255, 201, 23)
+    backgroundColor = rgb( 252, 243, 207  )
+  }
+
+  return box(
+    fill: backgroundColor,
+    stroke: 2pt + strokeColor,
+    radius: radius,
+    width: width,
+    inset: 8pt,
+    body
+  )
+}
+
+#let infobox(body) = {
+  headlessbox(color: "green", body)
 }

@@ -6,7 +6,7 @@
 
 // todo: check following 
 #let mark(body) = {
-  box(fill: rgb(255, 201, 75), outset: (y:3pt), radius: 0.2em, body)
+  box(fill: rgb(255, 201, 75).lighten(20%), outset: (y:3pt), radius: 0.2em, body)
 }
 
 #let quelle(body, url: "", position: end) = {

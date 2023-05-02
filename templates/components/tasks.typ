@@ -47,9 +47,18 @@
   )
 ]
 
-#let solution(body) = {
+#let solution(solution, placeholder: []) = {
+    locate(loc => {
+      if show_lsg.at(loc) == false { placeholder }
+    })
     set text(fill: rgb( 255, 87, 51 ))
     locate(loc => {
-      if show_lsg.at(loc) == true { body }
+      if show_lsg.at(loc) == true { solution }
     })
+}
+
+#let notifso(body) = {
+  locate(loc => {
+    if show_lsg.at(loc) == false { body }
+  })
 }
