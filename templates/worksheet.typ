@@ -50,3 +50,8 @@
   body
 }
 
+#let title(title) = [
+  #align(center)[
+    #text(16pt, weight: 700, title)
+  ]
+]
