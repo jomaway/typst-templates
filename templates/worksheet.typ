@@ -28,7 +28,8 @@
 // Update global state show solution
   show_lsg.update(lsg)
 
-  set text(font: "Source Sans Pro", lang: "de")
+  //set text(font: "Source Sans Pro", lang: "de")
+  set text(font: "Corbel", lang: "de")
   set par(leading: 0.75em)
 
   // Main body.
@@ -45,6 +46,7 @@
   show heading.where(level: 2): it => {
     v(0.5em)
     it
+    v(0.5em)
   }
   // Content-Body
   body
