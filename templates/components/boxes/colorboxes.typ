@@ -32,7 +32,7 @@
   )[
     #block(width: width)[
     #layout(size => style(styles => {
-      let content = box(inset: inset, width: width,body)
+      let content = box(inset: inset, width: size.width,body)
       let (height,) = measure(content,styles)
       if border == "cornered" {
         place(
