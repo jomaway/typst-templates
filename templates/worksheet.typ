@@ -1,7 +1,7 @@
 #import "components/footers.typ": default;
 #import "components/helpers.typ": lines, quelle, mark;
 #import "components/tasks.typ": *;
-#import "components/boxes.typ": *;
+#import "components/boxes/colorboxes.typ": *;
 #import "components/code-box.typ": *;
 
 #let worksheet(topic: "", subject: "",  authors: ("JM"), version: "1.0", lsg: false, body) = {
@@ -30,23 +30,31 @@
 
   //set text(font: "Source Sans Pro", lang: "de")
   set text(font: "Corbel", lang: "de")
+  // Set spacing between lines
   set par(leading: 0.75em)
 
   // Main body.
   
   set par(justify: true)
   set text(12pt)
-  set heading(numbering: "1.")
-
 
   // Set paragraph spacing.
   show par: set block(above: 1.2em, below: 1.2em)
+
+  // Only set numbering on the first and second level.
+  set heading(numbering: (..args) => {
+  let nums = args.pos()
+  if nums.len() >= 3 {
+    []
+  } else {
+    numbering("1.", ..nums)
+  }
+})
 
   // Add small vertical space before each heading
   show heading.where(level: 2): it => {
     v(0.5em)
     it
-    v(0.5em)
   }
   // Content-Body
   body

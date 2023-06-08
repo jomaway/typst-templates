@@ -35,8 +35,23 @@ Desribtion for task one. A counter is used to update the numbering.
 = This is a task title
 == This is a question without points.
 
+// NEW multiple choice questions.
+
+#mct(choices("x","y","z"), answer: 1) 
+
 ```
+
 See example folder for further examples and usecases.
+
+## Components
+
+In the components folder are some components packages which might be usefull.
+
+### Colorboxes
+
+Colorboxes are a set of predefined colorfull boxes. Easy to extend and modify.
+
+![colorboxes showcase](colorboxes.png)
 
 ## VS Code integration
 
