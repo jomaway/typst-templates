@@ -2,7 +2,7 @@
 
 #show: exam.with(
     kind: "Schulaufgabe",  // Schulaufgabe | Stegreifaufgabe | Kurzarbeit
-    date: "7.6.2023",
+    date: datetime(year: 2023, month: 6, day: 7),  // datetime or string -> "7.6.2023",
     class: "IT 99x",
     subject: "IT-Systeme",
     aids: "Taschenrechner",

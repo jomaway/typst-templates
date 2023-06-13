@@ -13,10 +13,13 @@ At the moment there are 3 templates
 + and a slide template for presentations
 
 ### Create an Exam
+
+Requires `typst 0.5`
+
 ```
 #show: exam.with(
     kind: "Schulaufgabe",  // specifiy the kind of exam
-    date: "1.5.2023",
+    date: datetime(year:2023, month: 5, day: 1),   // new datetime support
     class: "12b",
     subject: "IT-Systeme", 
     authors: ("JM"),

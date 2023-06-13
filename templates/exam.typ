@@ -3,7 +3,7 @@
 // The exam function defines how your document looks.
 #let exam(
   kind: "exam", // shoes the kind of exam -> Schulaufgabe | Stegreifaufgabe | Kurzarbeit
-  date: "",     // date of the exam
+  date: datetime.today(),     // date of the exam
   class: "",    
   subject: "" , 
   logo: "images/logo.png", // displays the logo of the school.
@@ -20,7 +20,7 @@
   set page(
     margin: (left: 20mm, right: 20mm, top: 10mm, bottom: 20mm),
     footer: {
-      sym.copyright; "2023"
+      sym.copyright; if type(date) == "datetime" { date.display("[year]") } else { datetime.today().display("[year]") }
       if (type(authors) == "array") [
       #authors.join(", ", last: " and ")
       ] else [
@@ -80,7 +80,7 @@
             #set par(leading: 1em)
             #smallcaps("Klasse: ") #class \ 
             #smallcaps("Fach: ") #subject \
-            #smallcaps("Datum: ") #date 
+            #smallcaps("Datum: ") #if type(date) == "datetime" { date.display("[day].[month].[year]") } else {date}
             
           ],
           cell()[
@@ -146,14 +146,17 @@
 
   // Footer 
   v(1fr)
-  align(center)[
-    Maximal sind #total_points.display() Punkte erreichbar.
+  place(bottom + end)[
+    #box(stroke: 1pt, inset: 0.8em)[
+        #text(16pt, sym.sum) :  \_\_\_\_ \/ #total_points.display() #smallcaps("PT")
+    ]
   ]
   
 }
 
 #let lines(count) = {
     for _ in range(count) {
-        block(spacing: 1.6em, line(length:100%, stroke: rgb( 178, 186, 187 )) )
+        block(spacing: 1.6em, line(length:100%, stroke: rgb("#616A6B")) )
     }
 }
+
