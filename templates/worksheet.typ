@@ -1,8 +1,6 @@
-#import "components/footers.typ": default;
 #import "components/helpers.typ": lines, quelle, mark;
-#import "components/tasks.typ": *;
 #import "components/boxes/colorboxes.typ": *;
-#import "components/code-box.typ": *;
+#import "components/boxes/code-box.typ": *;
 
 #let worksheet(topic: "", subject: "",  authors: ("JM"), version: "1.0", lsg: false, body) = {
   // Set the document's basic properties.
@@ -22,7 +20,23 @@
         #place(bottom, line(length: 100%) )
     ],
     header-ascent: 5mm,
-    footer: default(authors, version: version),
+    footer: {
+      sym.copyright; datetime.today().display("[year]")
+      if (type(authors) == "array") [
+      #authors.join(", ", last: " and ")
+      ] else [
+      #authors
+      ]
+      box(
+        height: 0.7em,
+        image("images/by-nc-sa.eu.svg")
+      )
+      if version != none [
+      \- v#version
+      ]
+      h(1fr)
+      counter(page).display("1 / 1", both: true)
+    },
   )
 
 // Update global state show solution
@@ -65,3 +79,4 @@
     #text(16pt, weight: 700, title)
   ]
 ]
+

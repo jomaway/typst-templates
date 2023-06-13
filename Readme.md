@@ -72,6 +72,5 @@ And add the following to `settings.json` if you don't want to compile the templa
 
 Credits to some people which templates i used or extended for my usecase.
 
-- [lkoehl](https://github.com/lkoehl/typst-boxes) for colorbox
 - [lostpy](https://gitlab.com/LostPy/lostpy-typst-templates) for code-box
 - [lvignoli](https://github.com/lvignoli/diapo) for slides
