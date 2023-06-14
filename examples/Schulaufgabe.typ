@@ -6,7 +6,8 @@
     class: "IT 99x",
     subject: "IT-Systeme",
     aids: "Taschenrechner",
-    lsg: false,  // change this to true to see the solutions
+    lsg: false,  // change this to true to see the solutions    
+    print_cover: true,  // Print a cover page
 )
 
 = Aufbau eines Local Area Networks // You can use heading syntax to create a new task.
@@ -58,4 +59,6 @@ passiv #sym.arrow.r #solution(placeholder: lines(2))[ohne Stromverbindung z.B. L
   #let addr = (`207.249.255.1`, `207.248.254.255`, `207.248.253.0`, `207.248.255.245`, `207.248.255.255`)
   #mct(choices:addr, answer:4)
 
-  
+= Letzte Aufgabe
+
+#question(points: 85)[nothing]
