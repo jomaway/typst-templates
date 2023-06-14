@@ -16,6 +16,10 @@ At the moment there are 3 templates
 
 Requires `typst 0.5`
 
+![screenshot exam](screenshot_exam.png)
+
+Creating an exam like in the screenshot is as easy like that:
+
 ```
 #show: exam.with(
     kind: "Schulaufgabe",  // specifiy the kind of exam
@@ -25,6 +29,7 @@ Requires `typst 0.5`
     authors: ("JM"),
     aids: "TR", // Permitted aids -> default: none else takes a string.
     lsg: false, // if true it will show the content of #solution[] in a red color. 
+    print_cover: true,  // print cover page
 )
 
 #task[Task number one]
@@ -43,6 +48,7 @@ Desribtion for task one. A counter is used to update the numbering.
 #mct(choices("x","y","z"), answer: 1) 
 
 ```
+`#task` describes an overall task and is numbered while `#question` means a specific question for that task and is prefixed with an letter. 
 
 See example folder for further examples and usecases.
 
