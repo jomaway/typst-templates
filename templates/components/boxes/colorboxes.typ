@@ -86,7 +86,7 @@
   )[
     #let innerwidth = if type(width) == "ratio" { 100% } else { width }
     #block(width: innerwidth)[
-      #let content = box(inset: inset, width: innerwidth, body)
+      #let content = box(inset: inset, body)
 
       #if border == "cornered" [
         #frame(strokecolor: strokecolor)[#content]
@@ -173,7 +173,7 @@
 */
 #let admonition(body, title: none, stretch: false, ..args) = {
   iconbox(width: if stretch {100%} else {auto}, ..args)[
-    #if title != none [= #smallcaps[#title]]
+    #if title != none [#text(1.2em, weight: "bold",smallcaps[#title])]
     #align(horizon, body)
   ] 
 }
