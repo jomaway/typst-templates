@@ -171,7 +171,7 @@
 /*
   admonition abstracts some logic which is used for the following predefined boxes
 */
-#let admonition(body, title: none, stretch: false, ..args) = {
+#let admonition(body, title: none, stretch: true, ..args) = {
   iconbox(width: if stretch {100%} else {auto}, ..args)[
     #if title != none [#text(1.2em, weight: "bold",smallcaps[#title])]
     #align(horizon, body)
@@ -193,7 +193,7 @@
 }
 
 /*
-  CONCLUTION
+  CONCLUSION
 */
 #let concl(body, title: "Zusammenfassung", ..args) = {
   admonition(color: "yellow", icon: "lightbulb.svg", title:title, ..args)[#body]
@@ -203,7 +203,7 @@
 /*
   QUESTION
 */
-#let quest(body, title: "Frage", ..args) = {
+#let quest(body, title: none, ..args) = {
   admonition(color: "purple", icon: "quest.svg", title:title, ..args)[#set text(14pt);#body]
 }
 

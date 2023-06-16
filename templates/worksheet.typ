@@ -1,6 +1,7 @@
 #import "components/helpers.typ": lines, quelle, mark;
 #import "components/boxes/colorboxes.typ": *;
 #import "components/boxes/code-box.typ": *;
+#import "components/tasks.typ": * 
 
 #let worksheet(topic: "", subject: "",  authors: ("JM"), version: "1.0", lsg: false, body) = {
   // Set the document's basic properties.
@@ -53,7 +54,7 @@
   set text(12pt)
 
   // Set paragraph spacing.
-  show par: set block(above: 1.2em, below: 1.2em)
+  //show par: set block(above: 1.2em, below: 1.2em)
 
   // Only set numbering on the first and second level.
   set heading(numbering: (..args) => {
@@ -65,11 +66,7 @@
   }
 })
 
-  // Add small vertical space before each heading
-  show heading.where(level: 2): it => {
-    v(0.5em)
-    it
-  }
+
   // Content-Body
   body
 }
