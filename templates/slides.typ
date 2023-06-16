@@ -1,5 +1,3 @@
-#import "components/boxes.typ": *;
-
 // all credits to: https://github.com/lvignoli/diapo
 
 #let scriptsize = 8pt
@@ -50,7 +48,7 @@
 	set document(title: title, author: author)
 
 	// Configure page and text properties.
-	set text(font: "PT Sans", weight: "regular")
+	set text(font: "Source Sans Pro", weight: "regular")
 	set page(
 		width: 15cm,
 		height: 10cm,
@@ -96,7 +94,7 @@
     set text(14pt)
 
 	// Customize headings to show new slides.
-	show heading: set text(font: "Avenir")
+	show heading: set text(font: "Poppins")
 	show heading.where(level: 1): it => {
 		pagebreak()
 		align(top, it)
