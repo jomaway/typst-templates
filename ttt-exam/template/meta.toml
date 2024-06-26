@@ -6,11 +6,14 @@ subtitle = ""
 date = "unknown"
 authors = "unknown"
 
-[points]
-total = 100
+[grading]
+scale = "ihk" # default value "ihk"
+offset = 0    # default value 0
+steps = 0.5   # default value 0.5
+points = 100  # default value 100
 
 # List of students with name = points
 [students]
 name_1 = 100
-"name 2" = 100
+"name 2" = 34
 # ...

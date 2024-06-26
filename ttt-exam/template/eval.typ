@@ -3,7 +3,7 @@
 
 #let get-info(data) = {
   return data.at("info", default: (
-    class:"unknown", 
+    class:"unknown",
     subject:"unknown",
     title: "1. Exam",
     subtitle: "",
@@ -33,8 +33,8 @@
 
 // page settings
 #set page(
-  "a4", 
-  margin:2cm, 
+  "a4",
+  margin:2cm,
   header: [#components.tag(get-info(data).class) -  #components.tag(fill: rgb("#C1E1C1"), get-info(data).subject) #h(1fr) #components.tag(fill: gray, get-info(data).title)]
 )
 
@@ -44,10 +44,20 @@
 // title
 #align(center, text(16pt)[Auswertung])
 
-// calculations
-#let total-points = data.at("points", default: 0).at("total", default: 0)
-#let grade-scale = grading.ihk-scale(total-points, step: 0.5, offset: 1)
+#let grading-data = data.at("grading", default: (
+  scale: "ihk",
+  steps: 1,
+  offset: 0,
+  points: 0
+))
 
+// calculations
+#let total-points = data.at("grading", default: 0).at("points", default: 0)
+#let grade-scale = grading.ihk-scale(
+  total-points,
+  step: grading-data.at("steps", default: 1),
+  offset: grading-data.at("offset", default: 0)
+)
 #let grade-dist = state("grade-dist",("1":0,"2":0,"3":0,"4":0,"5":0,"6":0))
 
 #let student-data = process-students(data.students, grade-scale)
@@ -58,13 +68,13 @@
     columns: 3,
     inset: (_,y) => if (y < 1) { 0.5em } else {(x:0.5em, y:1em)},
     fill: (_,y) => if (y < 1) {luma(230)} else if calc.even(y) { luma(245)} else { none },
-    align: center + horizon,  
+    align: center + horizon,
     table.header("Name/ID", "Points", "Grade"),
     ..student-data.map(s => {
       let grade = if s.grade != none [
         *#s.grade* #grade-dist.update(d => { d.at(str(s.grade)) = d.at(str(s.grade)) + 1; d})
         ] else [ #text(red)[*X*] ]
-    
+
       (s.name, [#s.points], grade)
     }).flatten()
   )),
